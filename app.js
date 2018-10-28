@@ -12,7 +12,7 @@ const client = new Github({
 });
 
 // Enable CORS for the client app
-//app.use(cors());
+app.use(cors());
 
 app.get('/users/:username', (req, res, next) => { // eslint-disable-line no-unused-vars
   client.user(req.params.username)
