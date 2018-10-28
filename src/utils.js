@@ -14,7 +14,13 @@ function getReposLanguagesStats(reposLanguages = []) {
 function getReposFiveBestLanguages(reposLanguages) {
   const stats = [];
   Object.keys(reposLanguages).forEach(key => {
-    stats.push({ name: key, lines: reposLanguages[key] });
+    stats.push({
+      name: key,
+      lines: reposLanguages[key],
+    });
+  });
+  stats.sort((a, b) => {
+    return Number(a.lines) < Number(b.lines);
   });
   return stats.slice(0, 5);
 }
